@@ -10,5 +10,9 @@ app.get('/', (req,res)=>{
  res.sendFile(__dirname + '/views/index.html');
 })
 
+app.get('/api/whoami',(req, res)=>{
+    const {ip:ipAddress} = req;
+   res.json({ipaddress: ipAddress});
+})
 
 app.listen(port);
