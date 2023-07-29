@@ -11,14 +11,18 @@ app.get('/', (req,res)=>{
 })
 
 app.get('/api/whoami',(req, res)=>{
+    
     const ipAddress = req.ip;
     const language = req.headers['accept-language'];
+    const software = req.headers['user-agent'];
+
     res.json(
             {
                 ipaddress: ipAddress,
-                language: language
+                language: language,
+                software: software
             }
         );
-})
+});
 
 app.listen(port);
